@@ -49,14 +49,14 @@ public class AstronomyController {
     {
         List<CelestialBody> celestialBodies = new ArrayList<>();
 
-        if (response.data != null &&
-            response.data.table != null &&
-            response.data.table.rows != null) {
+        if (response.data != null
+            && response.data.table != null
+            && response.data.table.rows != null) {
             for (AstronomyResponse.Row row : response.data.table.rows) {
                 if (row.cells != null) {
                     for (AstronomyResponse.Cell cell : row.cells) {
-                        if (cell.position != null &&
-                            cell.position.horizontal != null) {
+                        if (cell.position != null
+                            && cell.position.horizontal != null) {
                             String name = formatName(cell.name);
                             double altitude = cell.position.horizontal.altitude.degrees;
                             double azimuth = cell.position.horizontal.azimuth.degrees;
@@ -72,7 +72,9 @@ public class AstronomyController {
     }
 
     private String formatName(String name) {
-        if(name == null) return "Unknown";
+        if (name == null) {
+            return "Unknown";
+        }
         return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
     }
 

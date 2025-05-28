@@ -61,7 +61,9 @@ public class SkyPanel extends JPanel {
 
     private void drawBodies(Graphics2D g) {
         for (CelestialBody body : bodies) {
-            if (body.altitude < 0) continue;
+            if (body.altitude < 0) {
+                continue;
+            }
 
             Point point = projectToScreen(body.azimuth, body.altitude);
 
