@@ -1,27 +1,22 @@
 package spinner.astronomy;
 
-import io.reactivex.rxjava3.core.Single;
-import spinner.astronomy.json.AstronomyResponse;
-
 import javax.swing.*;
 
 public class AstronomyFrame extends JFrame {
-    private final JLabel altitudeLabel = new JLabel();
-    private final JLabel azimuthLabel = new JLabel();
+    private final SkyPanel skyPanel = new SkyPanel();
 
     public AstronomyFrame() {
-        setTitle("Astronomy Viewer");
+        setTitle("Sky");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 400);
+        setResizable(true);
+
+        add(skyPanel);
+        pack();
         setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel();
-        panel.add(altitudeLabel);
-        panel.add(azimuthLabel);
-        add(panel);
-
         AstronomyService service = new AstronomyServiceFactory().getService();
-        new AstronomyController(altitudeLabel, azimuthLabel, service).display();
+        AstronomyController controller = new AstronomyController(skyPanel, service);
+        controller.display();
     }
 
     public static void main(String[] args) {
