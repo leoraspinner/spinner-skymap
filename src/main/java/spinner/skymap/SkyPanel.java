@@ -15,47 +15,52 @@ public class SkyPanel extends JPanel {
 
     public SkyPanel() {
         setBackground(Color.BLACK);
-        setPreferredSize(new Dimension(800, 600));
+        setPreferredSize(new Dimension(800, 800));
     }
 
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
-
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-        drawGrid(g2d);
-        drawBodies(g2d);
+        drawGrid((Graphics2D) g);
+        drawBodies((Graphics2D) g);
     }
 
     private void drawGrid(Graphics2D g) {
-        g.setColor(Color.YELLOW);
-        g.setStroke(new BasicStroke(1));
-
         int width = getWidth();
         int height = getHeight();
         int centerX = width / 2;
         int centerY = height / 2;
 
-        //horizontal line
+        g.setColor(Color.YELLOW);
+        g.setStroke(new BasicStroke(2));
+
+
+
+        // Draw horizon line (horizontal)
         g.drawLine(0, centerY, width, centerY);
 
-        //vertical line
+        // Draw meridian line (vertical)
         g.drawLine(centerX, 0, centerX, height);
 
-        //grid lines
+        // Draw additional grid lines
         g.drawLine(centerX / 2, 0, centerX / 2, height);
         g.drawLine(centerX + centerX / 2, 0, centerX + centerX / 2, height);
 
-        //directions
-        g.setFont(new Font("Arial", Font.BOLD, 14));
-        g.drawString("North", centerX - 20, 20);
-        g.drawString("South", centerX - 20, height - 10);
-        g.drawString("East", width - 35, centerY - 10);
-        g.drawString("West", 5, centerY - 10);
+        // Draw cardinal directions
+        g.setFont(new Font("Arial", Font.PLAIN, 20));
         g.drawString("Horizon", centerX + 10, centerY - 10);
+
+        int southY = height - 10;
+        g.drawString("South", 10, southY);
+        int westX = width / 4 + 2;
+        g.drawString("West", westX, southY);
+        int northX = width / 2 + 2;
+        g.drawString("North", northX, southY);
+        int eastX = width * 3 / 4 + 2;
+        g.drawString("East", eastX, southY);
+        int southRight = width - g.getFontMetrics().stringWidth("South") -14;
+        g.drawString("South", southRight, southY);
     }
 
     private void drawBodies(Graphics2D g) {

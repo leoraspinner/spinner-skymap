@@ -9,7 +9,6 @@ public class AstronomyFrame extends JFrame {
         setTitle("Sky");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
-
         add(skyPanel);
         pack();
         setLocationRelativeTo(null);

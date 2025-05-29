@@ -15,7 +15,7 @@
 ---
 
 ## 📸 Screenshot
-![skymap.png](skymap.png)
+![skymap2.png](skymap2.png)
 
 
 ---
