@@ -1,4 +1,4 @@
-package spinner.astronomy;
+package spinner.skymap;
 
 import javax.swing.*;
 

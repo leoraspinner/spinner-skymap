@@ -1,9 +1,9 @@
-package spinner.astronomy;
+package spinner.skymap;
 
 import com.andrewoid.apikeys.ApiKey;
 import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
-import spinner.astronomy.json.AstronomyResponse;
+import spinner.skymap.json.AstronomyResponse;
 
 import javax.swing.*;
 import java.time.LocalDate;

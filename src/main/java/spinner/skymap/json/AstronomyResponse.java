@@ -1,4 +1,4 @@
-package spinner.astronomy.json;
+package spinner.skymap.json;
 
 public class AstronomyResponse {
     public Data data;

@@ -1,6 +1,5 @@
-package spinner.astronomy;
+package spinner.skymap;
 
-import spinner.astronomy.CelestialBody;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

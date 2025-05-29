@@ -1,4 +1,4 @@
-package spinner.astronomy;
+package spinner.skymap;
 
 public class CelestialBody {
     public final String name;

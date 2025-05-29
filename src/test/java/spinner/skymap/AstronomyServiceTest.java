@@ -1,7 +1,7 @@
-package spinner.astronomy;
+package spinner.skymap;
 
 import com.andrewoid.apikeys.ApiKey;
-import spinner.astronomy.json.AstronomyResponse;
+import spinner.skymap.json.AstronomyResponse;
 import org.junit.jupiter.api.Test;
 import java.util.Base64;
 import static org.junit.jupiter.api.Assertions.*;

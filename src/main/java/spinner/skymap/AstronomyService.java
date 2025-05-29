@@ -1,10 +1,10 @@
-package spinner.astronomy;
+package spinner.skymap;
 
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Query;
-import spinner.astronomy.json.AstronomyResponse;
+import spinner.skymap.json.AstronomyResponse;
 
 public interface AstronomyService {
     @GET("api/v2/bodies/positions")
