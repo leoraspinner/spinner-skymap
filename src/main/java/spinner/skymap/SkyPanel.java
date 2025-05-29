@@ -59,7 +59,7 @@ public class SkyPanel extends JPanel {
         g.drawString("North", northX, southY);
         int eastX = width * 3 / 4 + 2;
         g.drawString("East", eastX, southY);
-        int southRight = width - g.getFontMetrics().stringWidth("South") -14;
+        int southRight = width - g.getFontMetrics().stringWidth("South") - 14;
         g.drawString("South", southRight, southY);
     }
 
