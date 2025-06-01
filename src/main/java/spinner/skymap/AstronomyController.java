@@ -17,6 +17,8 @@ public class AstronomyController {
     private final SkyPanel skyPanel;
     private final AstronomyService service;
     private final String authHeader;
+    private double latitude = 40.6247;
+    private double longitude = -73.7292;
 
     public AstronomyController(SkyPanel skyPanel, AstronomyService service) {
         this.skyPanel = skyPanel;
@@ -29,20 +31,27 @@ public class AstronomyController {
                 );
     }
 
+    public void updateLocation(double lat, double lon) {
+        this.latitude = lat;
+        this.longitude = lon;
+        display();
+    }
+
     public void display() {
         String date = LocalDate.now().toString();
         String time = LocalTime.now().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
         Disposable disposable = service.getPosition(
                         authHeader,
-                        -73.7292, 40.6247, 0,
-                        date, date, time, "moon"
+                        longitude, latitude, 0,
+                        date, date, time,
+                        "sun,moon,mercury,venus,mars,jupiter,saturn,uranus,neptune,pluto"
         )
-                .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.from(SwingUtilities::invokeLater))
-                .subscribe(
-                        this::handleResponse,
-                        Throwable::printStackTrace
-                );
+        .subscribeOn(Schedulers.io())
+        .observeOn(Schedulers.from(SwingUtilities::invokeLater))
+        .subscribe(
+                  this::handleResponse,
+                 Throwable::printStackTrace
+        );
     }
 
     private void handleResponse(AstronomyResponse response)
