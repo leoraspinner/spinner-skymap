@@ -16,11 +16,11 @@ public class AstronomyFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
 
-        setupUI();
+        setupUi();
         setupControllers();
     }
 
-    private void setupUI() {
+    private void setupUi() {
         setLayout(new BorderLayout());
 
         JPanel searchPanel = new JPanel(new FlowLayout());

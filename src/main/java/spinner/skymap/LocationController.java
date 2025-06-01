@@ -21,7 +21,7 @@ public class LocationController {
     }
 
     public void searchLocation(String locationName) {
-        if(locationName == null || locationName.trim().isEmpty()) {
+        if (locationName == null || locationName.trim().isEmpty()) {
             return;
         }
 
@@ -35,7 +35,7 @@ public class LocationController {
     }
 
     private void handleLocationResponse(GeocodingResponse[] responses) {
-        if(responses != null && responses.length > 0){
+        if (responses != null && responses.length > 0) {
             GeocodingResponse location = responses[0];
             astronomyController.updateLocation(location.lat, location.lon);
         }
