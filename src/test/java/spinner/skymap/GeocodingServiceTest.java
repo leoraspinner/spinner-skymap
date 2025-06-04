@@ -11,8 +11,9 @@ class GeocodingServiceTest {
     void getLocationCoordinates() {
         //Given
         GeocodingService service = new GeocodingServiceFactory().getService();
-        ApiKey apiKey = new ApiKey("openweathermap");
+        ApiKey apiKey = new ApiKey("OPENWEATHERMAP");
         String key = apiKey.get();
+
 
         //When
         GeocodingResponse[] responses = service.getLocationCoordinates("Manhattan", 1, key).blockingGet();
@@ -21,5 +22,6 @@ class GeocodingServiceTest {
         assertNotNull(responses, "Response should not be null");
         assertTrue(responses.length > 0, "Response should have at least one location");
         assertEquals("Manhattan", responses[0].name, "First location name should be Manhattan");
+
     }
 }
