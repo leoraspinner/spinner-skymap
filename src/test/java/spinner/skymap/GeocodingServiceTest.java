@@ -11,7 +11,7 @@ class GeocodingServiceTest {
     void getLocationCoordinates() {
         //Given
         GeocodingService service = new GeocodingServiceFactory().getService();
-        ApiKey apiKey = new ApiKey("OPENWEATHERMAP");
+        ApiKey apiKey = new ApiKey("openweathermap");
         String key = apiKey.get();
 
 
