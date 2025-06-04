@@ -9,38 +9,18 @@
 - 🎯 **Accurate positions** of Sun, Moon, and major planets
 - 🖥️ **Interactive sky chart** with labeled celestial bodies
 - 📡 **Live data** from AstronomyAPI (altitude & azimuth)
+  - https://docs.astronomyapi.com/endpoints/bodies/positions
 - 🧩 **Modular Java code** (Retrofit, RxJava, Swing)
 - 📍 Default location: Cedarhurst, NY (customizable)
 
 ---
 
 ## 📸 Screenshot
-![skymap2.png](skymap2.png)
+![skymap_w:searchbox.png](skymap_w:searchbox.png)
 
 
 ---
 
-
-## 🗂️ Project Structure
-```
-src/
-├── main/
-│   ├── java/
-│   │   └── spinner/astronomy/
-│   │       ├── AstronomyFrame.java
-│   │       ├── AstronomyController.java
-│   │       ├── AstronomyService.java
-│   │       ├── AstronomyServiceFactory.java
-│   │       ├── SkyPanel.java
-│   │       ├── CelestialBody.java
-│   │       └── json/
-│   │           └── AstronomyResponse.java
-│   └── resources/
-│       └── apikey.properties   # (not committed)
-└── test/
-    └── java/
-        └── spinner/astronomy/
-            └── AstronomyServiceTest.java
 ```
 
 

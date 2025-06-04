@@ -9,7 +9,7 @@ public class AstronomyFrame extends JFrame {
     private final SkyPanel skyPanel = new SkyPanel();
     private final JTextField locationField = new JTextField(20);
     private final JButton searchButton = new JButton("Search");
-    private LocationController locationController;
+    private AstronomyController astronomyController;
 
     public AstronomyFrame() {
         setTitle("Sky");
@@ -38,25 +38,23 @@ public class AstronomyFrame extends JFrame {
     }
 
     private void setupControllers() {
-        AstronomyService service = new AstronomyServiceFactory().getService();
-        AstronomyController astronomyController = new AstronomyController(skyPanel, service);
-        locationController = new LocationController(astronomyController);
+        astronomyController = new AstronomyController(skyPanel);
 
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                locationController.searchLocation(locationField.getText());
+                astronomyController.searchLocation(locationField.getText());
             }
         });
 
         locationField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                locationController.searchLocation(locationField.getText());
+                astronomyController.searchLocation(locationField.getText());
             }
         });
 
-        astronomyController.display();
+        astronomyController.refreshSkyData();
     }
 
     public static void main(String[] args) {
